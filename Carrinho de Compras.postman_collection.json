@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "309a3f1e-478c-4602-8fc4-6f6fdb27ed82",
+		"name": "Carrinho de Compras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13191053"
+	},
+	"item": [
+		{
+			"name": "gateway",
+			"item": [
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "igor.monte@teste.com",
+											"type": "text"
+										},
+										{
+											"key": "senha",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/conta/autenticacao/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"conta",
+										"autenticacao",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CheckMe",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjA4NDA4MzB9.pD88rbqiYp_Ni7Wv2QUYqjUEhult9WrP4rOMPHlue8g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/conta/autenticacao/checkMe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"conta",
+										"autenticacao",
+										"checkMe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Me",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjEyNzc3MzB9.PAQad9n_Bug3olF1Jai4Fvn5TwzER4QGQB2aGJBQ7Hw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/conta/autenticacao/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"conta",
+										"autenticacao",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registrar Usuário",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cpf\": \"123.456.789-10\",\r\n    \"nome\":\"Igor Monte\",\r\n    \"email\": \"igor.monte@teste.com\",\r\n    \"senha\": 123,\r\n    \"role\": \"ADMIN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/conta/autenticacao/criarConta",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"conta",
+										"autenticacao",
+										"criarConta"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Itens",
+					"item": [
+						{
+							"name": "Consultar Itens",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE1MjgzMDR9._wrC93PNFGlaeJV3zEXgcgVhaLU51IsrGQolNXPxphM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/itens/itens",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"itens",
+										"itens"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar Item por id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE1MjgzMDR9._wrC93PNFGlaeJV3zEXgcgVhaLU51IsrGQolNXPxphM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/itens/itens/id/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"itens",
+										"itens",
+										"id",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "191c2608-d05a-4836-88d3-bf28a5316485"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Item",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MjIwNTJ9.RbcyreVzQbsRaVM0SjNPvC2Ph62ILFy9CHNiWMx-odI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{    \r\n    \"nome\": \"Camera Fotográfica Polaroid\",\r\n    \"descricao\": \"Camera Fotográfica que imprime fotos em polaroid\",\r\n    \"categoria\": \"eletronicos\",\r\n    \"preco\": \"600\",\r\n    \"urlImagem\": \"https://loja.fujifilm.com.br/cdn/shop/products/4_5ca7c7fa-c361-480d-b996-879199b0ea80_grande.jpg?v=1681847936\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/itens/itens/cadastrarItem",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"itens",
+										"itens",
+										"cadastrarItem"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Item",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MzA1OTd9.UkYtcoC_d_BBn7VVZnKdy3BV487f8htn_b4TZcmvoTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"f88411c3-1ccc-4439-82e9-5667cc2abd0d\",\r\n    \"nome\": \"Camera Fotográfica Polaroid\",\r\n    \"descricao\": \"Camera Fotográfica que imprime fotos em polaroid\",\r\n    \"categoria\": \"eletronicos\",\r\n    \"preco\": 700,\r\n    \"urlImagem\": \"https://loja.fujifilm.com.br/cdn/shop/products/4_5ca7c7fa-c361-480d-b996-879199b0ea80_grande.jpg?v=1681847936\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/itens/itens/editarItem",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"itens",
+										"itens",
+										"editarItem"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar Itens Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MzA1OTd9.UkYtcoC_d_BBn7VVZnKdy3BV487f8htn_b4TZcmvoTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/itens/itens/removerItem/f88411c3-1ccc-4439-82e9-5667cc2abd0d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"itens",
+										"itens",
+										"removerItem",
+										"f88411c3-1ccc-4439-82e9-5667cc2abd0d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CarrinhoCompra",
+					"item": [
+						{
+							"name": "Consultar Carrinho",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MzA1OTd9.UkYtcoC_d_BBn7VVZnKdy3BV487f8htn_b4TZcmvoTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/carrinhocompra/carrinhocompra",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"carrinhocompra",
+										"carrinhocompra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Adicionar Item Carrinho",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MjIwNTJ9.RbcyreVzQbsRaVM0SjNPvC2Ph62ILFy9CHNiWMx-odI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idItem\": \"a2b0ad2b-5d79-46b7-8b86-61124e2627ea\",\r\n    \"quantidade\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/carrinhocompra/carrinhocompra/adicionarItem",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"carrinhocompra",
+										"carrinhocompra",
+										"adicionarItem"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover Item Carrinho",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MzA1OTd9.UkYtcoC_d_BBn7VVZnKdy3BV487f8htn_b4TZcmvoTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idItem\": \"191c2608-d05a-4836-88d3-bf28a5316485\",\r\n    \"quantidade\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/carrinhocompra/carrinhocompra/removerItem/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"carrinhocompra",
+										"carrinhocompra",
+										"removerItem",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "191c2608-d05a-4836-88d3-bf28a5316485"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pagamento",
+					"item": [
+						{
+							"name": "visualizarCarrinho",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MzA1OTd9.UkYtcoC_d_BBn7VVZnKdy3BV487f8htn_b4TZcmvoTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pagamento/pagamento/visualizarCarrinho",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pagamento",
+										"pagamento",
+										"visualizarCarrinho"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Finalizar Compra",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwb3N0ZWNoIiwic3ViIjoiaWdvci5tb250ZUB0ZXN0ZS5jb20iLCJleHAiOjE3MjE2MzA1OTd9.UkYtcoC_d_BBn7VVZnKdy3BV487f8htn_b4TZcmvoTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"meioPagamento\": \"CREDITO\",\r\n    \"parcela\": 5,\r\n    \"numeroCartao\": \"123123123123\",\r\n    \"vencimento\": \"07/2028\",\r\n    \"nomeTitular\": \"IGOR EX\",\r\n    \"codigoVerificador\": \"239\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pagamento/pagamento/finalizarCompra",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pagamento",
+										"pagamento",
+										"finalizarCompra"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
