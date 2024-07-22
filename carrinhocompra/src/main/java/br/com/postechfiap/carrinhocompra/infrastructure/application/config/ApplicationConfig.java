@@ -1,11 +1,9 @@
 package br.com.postechfiap.carrinhocompra.infrastructure.application.config;
 
 import br.com.postechfiap.carrinhocompra.application.gateway.AdicionarItemAoCarrinhoDbGateway;
-import br.com.postechfiap.carrinhocompra.application.gateway.FinalizarCompraDbGateway;
 import br.com.postechfiap.carrinhocompra.application.gateway.RemoverItemDoCarrinhoDbGateway;
 import br.com.postechfiap.carrinhocompra.application.gateway.VisualizarCarrinhoDbGateway;
 import br.com.postechfiap.carrinhocompra.domain.usecases.repository.AdicionarItemAoCarrinhoRepository;
-import br.com.postechfiap.carrinhocompra.domain.usecases.repository.FinalizarCompraRepository;
 import br.com.postechfiap.carrinhocompra.domain.usecases.repository.RemoverItemDoCarrinhoRepository;
 import br.com.postechfiap.carrinhocompra.domain.usecases.repository.VisualizarCarrinhoRepository;
 import br.com.postechfiap.carrinhocompra.infrastructure.db.mongo.repository.CarrinhoCompraRepository;
@@ -27,13 +25,6 @@ public class ApplicationConfig {
                 carrinhoCompraRepository,
                 carrinhoCompraMapper,
                 itensMessagingGateway);
-    }
-    @Bean
-    FinalizarCompraRepository getFinalizarCompraRepository(
-            CarrinhoCompraRepository carrinhoCompraRepository,
-            CarrinhoCompraMapper carrinhoCompraMapper
-    ) {
-        return new FinalizarCompraDbGateway(carrinhoCompraRepository, carrinhoCompraMapper);
     }
     @Bean
     RemoverItemDoCarrinhoRepository getRemoverItemDoCarrinhoRepository(
