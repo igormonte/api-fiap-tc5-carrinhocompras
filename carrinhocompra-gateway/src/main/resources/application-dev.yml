@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: carrinhocompra-pagamento
+carrinhocompra:
+  api:
+    url: http://localhost:8081
+  login:
+    api:
+      url: http://localhost:8082
+  itens:
+    api:
+      url: http://localhost:8083
+  pagamento:
+    api:
+      url: http://localhost:8084
+
+route:
+  config:
+    routes:
+      - path: "/pagamento/resumir"
+        role: 'COMUM'
+      - path: "/pagamento/simularTransacao"
+        role: 'COMUM'
+      - path: "/carrinhocompra"
+        role: 'COMUM'
+      - path: "/carrinhocompra/adicionarItem"
+        role: 'COMUM'
+      - path: "/carrinhocompra/removerItem"
+        role: 'COMUM'
+      - path: "/itens"
+      - path: "/itens/cadastrarItem"
+        role: 'ADMIN'
+      - path: "/itens/editarItem"
+        role: 'ADMIN'
+      - path: "/itens/removerItem"
+        role: 'COMUM'
+      - path: "/pagamento/visualizarCarrinho"
+        role: 'COMUM'
+      - path: "/pagamento/finalizarCompra"
+        role: 'COMUM'
+server:
+  port: 8080
