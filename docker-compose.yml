@@ -2,77 +2,77 @@ version: "3.9"
 name: tech-chalenge5
 services:
 
-#  carrinhocompra-gateway-app:
-#    image: gateway/latest
-#    depends_on:
-#      - mysqldb
-#      - mongodb
-#      - carrinhocompra-app
-#      - carrinhocompra-login-app
-#      - carrinhocompra-itens-app
-#      - carrinhocompra-pagamento-app
-#    build:
-#      context: ./carrinhocompra-gateway
-#      dockerfile: Dockerfile
-#    command: --spring.profiles.active=prod
+ carrinhocompra-gateway-app:
+   image: gateway/latest
+   depends_on:
+     - mysqldb
+     - mongodb
+     - carrinhocompra-app
+     - carrinhocompra-login-app
+     - carrinhocompra-itens-app
+     - carrinhocompra-pagamento-app
+   build:
+     context: ./carrinhocompra-gateway
+     dockerfile: Dockerfile
+   command: --spring.profiles.active=prod
+   ports:
+     - "8080:8080"
+   networks:
+     - prod
+
+ carrinhocompra-app:
+   image: carrinhocompraapi/latest
+   depends_on:
+     - mongodb
+   build:
+     context: ./carrinhocompra
+     dockerfile: Dockerfile
+   command: --spring.profiles.active=prod
 #    ports:
-#      - "8080:8080"
-#    networks:
-#      - prod
-#
-#  carrinhocompra-app:
-#    image: carrinhocompraapi/latest
-#    depends_on:
-#      - mongodb
-#    build:
-#      context: ./carrinhocompra
-#      dockerfile: Dockerfile
-#    command: --spring.profiles.active=prod
-##    ports:
-##      - "8081:8081"
-#    networks:
-#      - prod
-#
-#  carrinhocompra-login-app:
-#    image: carrinhocompra-loginapi/latest
-#    depends_on:
-#      mysqldb:
-#        condition: service_healthy
-#    build:
-#      context: ./carrinhocompra-login
-#      dockerfile: Dockerfile
-#    command: --spring.profiles.active=prod
-##    ports:
-##      - "8082:8082"
-#    networks:
-#      - prod
-#
-#  carrinhocompra-itens-app:
-#    image: carrinhocompra-itensapi/latest
-#    depends_on:
-#      mysqldb:
-#          condition: service_healthy
-#    build:
-#      context: ./carrinhocompra-itens
-#      dockerfile: Dockerfile
-#    command: --spring.profiles.active=prod
-##    ports:
-##      - "8083:8083"
-#    networks:
-#      - prod
-#
-#  carrinhocompra-pagamento-app:
-#    image: carrinhocompra-pagamentoapi/latest
-#    depends_on:
-#      - carrinhocompra-app
-#    build:
-#      context: ./carrinhocompra-pagamento
-#      dockerfile: Dockerfile
-#    command: --spring.profiles.active=prod
-##    ports:
-##      - "8084:8084"
-#    networks:
-#      - prod
+#      - "8081:8081"
+   networks:
+     - prod
+
+ carrinhocompra-login-app:
+   image: carrinhocompra-loginapi/latest
+   depends_on:
+     mysqldb:
+       condition: service_healthy
+   build:
+     context: ./carrinhocompra-login
+     dockerfile: Dockerfile
+   command: --spring.profiles.active=prod
+#    ports:
+#      - "8082:8082"
+   networks:
+     - prod
+
+ carrinhocompra-itens-app:
+   image: carrinhocompra-itensapi/latest
+   depends_on:
+     mysqldb:
+         condition: service_healthy
+   build:
+     context: ./carrinhocompra-itens
+     dockerfile: Dockerfile
+   command: --spring.profiles.active=prod
+#    ports:
+#      - "8083:8083"
+   networks:
+     - prod
+
+ carrinhocompra-pagamento-app:
+   image: carrinhocompra-pagamentoapi/latest
+   depends_on:
+     - carrinhocompra-app
+   build:
+     context: ./carrinhocompra-pagamento
+     dockerfile: Dockerfile
+   command: --spring.profiles.active=prod
+#    ports:
+#      - "8084:8084"
+   networks:
+     - prod
 
   mongodb:
     image: mongo
